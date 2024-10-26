@@ -1,2 +1,2 @@
 # Flask-Python-Tutorial
- flask-tutorial
+Learning flask and full stack
