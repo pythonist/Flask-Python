@@ -51,16 +51,20 @@ def delete(id):
     db.session.commit()
     return redirect('/')
 
-# @app.route('/update/<int:id>', methods=['GET', 'POST'])
-# def update(id):
-#     todo = ToDO.query.get(id)
-#     if request.method == 'POST':
-#         todo.title = request.form['title']
-#         todo.description = request.form['description']
-#         db.session.commit()
-#         return redirect('/')
-    
-#     return render_template('index.html', todo=todo)
+@app.route('/update/<int:id>',methods = ["GET","POST"])
+def update(id):
+    if request.method == 'POST':
+        title = request.form['title']
+        description = request.form['description']
+        todo = ToDO.query.filter_by(id=id).first()
+        todo.title = title
+        todo.description = description
+        db.session.add(todo)
+        db.session.commit()
+        return redirect("/")
+
+    todo = ToDO.query.filter_by(id=id).first()
+    return render_template('update.html',todo=todo)
 
 if __name__ == "__main__":
     app.run(debug=True)

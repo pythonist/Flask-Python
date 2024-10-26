@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block bodyname %}
+
+<div class="container my-4">
+    <h4>Update your list</h4>
+    <form action="/update/{{todo.id}}" method="POST">
+        <div class="mb-3 my-6">
+            <label for="exampleFormControlInput1" class="form-label">Update Items</label>
+            <input type="text" class="form-control" name="title" value="{{todo.title}}" id="title">
+        </div>
+        <div class="mb-3 my-6">
+            <label for="exampleFormControlInput1" class="form-label">Update Description</label>
+            <input type="desc" class="form-control" name="description" value="{{todo.description}}" id="description">
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary">Update</button>
+        </div>
+    </form>
+</div>
+
+{% endblock bodyname %}
