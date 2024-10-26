@@ -41,7 +41,7 @@ def home_page():
 
 @app.route('/about')
 def new_page():  # Corrected function name
-    return "This is About Page"
+    return render_template('about.html')
 
 
 @app.route('/delete/<int:id>')
